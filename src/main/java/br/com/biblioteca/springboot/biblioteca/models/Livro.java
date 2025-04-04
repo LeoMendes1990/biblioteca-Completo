@@ -12,9 +12,11 @@ public class Livro {
     private String titulo;
     private String nome_autor;
     private String texto;
+    @Enumerated(EnumType.STRING)
     private Tamanho tamanho;
     @ManyToOne
     @JsonIgnore
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
     public Livro() {
@@ -67,5 +69,13 @@ public class Livro {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Tamanho getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(Tamanho tamanho) {
+        this.tamanho = tamanho;
     }
 }

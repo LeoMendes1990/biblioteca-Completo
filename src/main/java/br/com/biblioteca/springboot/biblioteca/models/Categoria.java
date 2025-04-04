@@ -14,7 +14,7 @@ public class Categoria {
     private String nome;
     private String descricao;
     @JsonIgnore
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "categoria", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Livro> livro = new ArrayList<>();
 
     public Categoria() {

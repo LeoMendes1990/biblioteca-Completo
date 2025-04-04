@@ -23,7 +23,7 @@ public class DbService {
         Categoria cat3 = new Categoria(null, "Biografias", "Livros de Biografias");
 
 
-        Livro l1 = new Livro(null, "Clean code", "Robertin Martin", "Lorem ipsum", Tamanho.Medio, cat1);
+        Livro l1 = new Livro(null, "Clean code", "Robertin Martin", "Lorem ipsum", Tamanho.Grande, cat1);
         Livro l2 = new Livro(null, "Engenharia de Software", "Louis V. Gerstner", "Lorem ipsum", Tamanho.Grande, cat1);
         Livro l3 = new Livro(null, "The time machine", "H. G. Wells", "Lorem ipsum", Tamanho.Medio, cat2);
         Livro l4 = new Livro(null, "The war of the worlds", "H. G. Wells", "Lorem ipsum", Tamanho.Pequeno, cat2);

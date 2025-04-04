@@ -3,6 +3,7 @@ package br.com.biblioteca.springboot.biblioteca.services;
 import br.com.biblioteca.springboot.biblioteca.dtos.CategoriaDTO;
 import br.com.biblioteca.springboot.biblioteca.exceptions.ObjectNotFoundExceptions;
 import br.com.biblioteca.springboot.biblioteca.models.Categoria;
+import br.com.biblioteca.springboot.biblioteca.models.Livro;
 import br.com.biblioteca.springboot.biblioteca.repositories.CategoriaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,16 @@ public class CategoriaService {
     CategoriaRepository categoriaRepository;
 
     public Categoria create(Categoria categoria) {
+        if (categoria.getLivro() != null) {
+            for (Livro livro : categoria.getLivro()) {
+                livro.setCategoria(categoria);
+            }
+        }
+
         return categoriaRepository.save(categoria);
     }
+
+
 
     public Categoria findById(Integer id) {
         Optional<Categoria> cat = categoriaRepository.findById(id);

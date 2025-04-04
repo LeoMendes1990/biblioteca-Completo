@@ -42,6 +42,7 @@ public class CategoriaController {
     @PutMapping("/{id}")
     public ResponseEntity<CategoriaDTO> update(@PathVariable Integer id, @RequestBody CategoriaDTO categoriaDTO) {
         Categoria categoria = categoriaService.update(id, categoriaDTO);
+
         return ResponseEntity.ok().body(modelMapper.map(categoria, CategoriaDTO.class));
     }
     @DeleteMapping("/{id}")
